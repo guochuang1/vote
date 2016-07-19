@@ -1,13 +1,10 @@
-
-     
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title>登录</title>
 <link type="text/css" rel="stylesheet" href="css/style.css" />
+<script src="js/jquery.min.js"></script>
 <script type="text/javascript">
 window.onload = function(){
 	var input = document.getElementById("loginBox").getElementsByTagName("input");
@@ -31,6 +28,27 @@ window.onload = function(){
 	}
 }
 </script>
+<script type="text/javascript">
+	$(function(){
+		$("#inputbutton").click(function(){
+			$.ajax({
+				type:"post",
+				data:$("#myform").serialize(),
+				url:"voteUser_login.action",
+				dataType:"json",
+				success:function(data){
+					if(data.code== 1){
+						alert("登录成功！");
+						location.href="manage.html";
+					}else{
+						alert("登录失败！原因"+data.msg);
+					}
+				}
+			});
+		});	
+	});
+
+</script>
 </head>
 <body>
 <div id="header" class="wrap">
@@ -45,14 +63,14 @@ window.onload = function(){
 		</div>
 		<div class="login">
 			<h2>用户登录</h2>
-			<form method="post" action="Login!login.action">
+			<form method="post" id="myform">
 				<dl id="loginBox">
 					<dt>用户名：</dt>
-					<dd><input type="text" class="input-text" name="userId"  value=""/></dd>
+					<dd><input type="text" class="input-text" name="uname"  value=""/></dd>
 					<dt>密　码：</dt>
-					<dd><input type="password" class="input-text" name="password"  value=""/></dd>
+					<dd><input type="password" class="input-text" name="pwd"  value=""/></dd>
 					<dt></dt>
-					<dd><input type="submit" class="input-button" name="submit" value="登录" /> <a href="Register.action">新用户注册</a></dd>
+					<dd><input type="button" id="inputbutton" class="input-button"  value="登录" /> <a href="register.html">新用户注册</a></dd>
 				</dl>
 			</form>
 			<div class="error"></div>
@@ -64,5 +82,6 @@ window.onload = function(){
 <div id="footer" class="wrap">
 	源辰信息 &copy; 版权所有
 </div>
+
 </body>
 </html>
