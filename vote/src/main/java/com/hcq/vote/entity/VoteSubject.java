@@ -14,9 +14,17 @@ public class VoteSubject {
 	private Integer optioncount;
 	private List<VoteOption> options;
 	private List<Long>chooseIds = new ArrayList<Long>();
+	private List<String>voteoptions = new ArrayList<String>();
 	
 	
-	
+	public List<String> getVoteOptions() {
+		return voteoptions;
+	}
+
+	public void setVoteOptions(List<String> voteoptions) {
+		this.voteoptions = voteoptions;
+	}
+
 	public List<Long> getChooseIds() {
 		return chooseIds;
 	}

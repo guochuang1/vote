@@ -37,6 +37,7 @@ create table voteitem(
 	uid int not null
 )
 
+select *from voteoption;
 
 alter table voteitem
 	add constraint fk_voteitem_voteid

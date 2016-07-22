@@ -21,7 +21,7 @@
 			success:function(data){
 				if(data.code==1){
 					alert("投票成功！");
-					location.href="view.html"+params;
+					location.href="view.html?"+params;
 				}else{
 					alert("投票失败！"+data.msg);
 				}
@@ -88,8 +88,8 @@
 <div id="navbar" class="wrap">
 	<div class="profile">
 		您好，a
-		<span class="return"><a href="Subject!list.action">返回列表</a></span>
-		<span class="addnew"><a href="Subject!read.action">添加新投票</a></span>
+		<span class="return"><a href="manage.html">返回列表</a></span>
+		<span class="addnew"><a href="add.html">添加新投票</a></span>
 		<span class="modify"><a href="Subject!modify.action">维护</a></span>
 
 	</div>
