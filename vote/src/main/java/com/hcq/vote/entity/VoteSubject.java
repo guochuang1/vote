@@ -1,9 +1,11 @@
 package com.hcq.vote.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VoteSubject {
+public class VoteSubject implements Serializable{
+	private static final long serialVersionUID = 4211428179919646284L;
 	private static int TYPE_SINGLE =1;   //单选
 	private static int TYPE_MULTIPLE=2;  //多选
 	
@@ -17,11 +19,12 @@ public class VoteSubject {
 	private List<String>voteoptions = new ArrayList<String>();
 	
 	
-	public List<String> getVoteOptions() {
+
+	public List<String> getVoteoptions() {
 		return voteoptions;
 	}
 
-	public void setVoteOptions(List<String> voteoptions) {
+	public void setVoteoptions(List<String> voteoptions) {
 		this.voteoptions = voteoptions;
 	}
 

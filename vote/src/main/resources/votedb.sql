@@ -67,7 +67,10 @@ alter table voteitem
 		insert into votesubject(title,stype)values('选出你心目中最好的浏览器',1);
 		insert into votesubject(title,stype)values('选出你心目中最好的杀毒软件',1);
 		insert into votesubject(title,stype)values('中国的首都是？',1);
+		insert into votesubject(title,stype)values('where are you from？',1);
 		
+	select *from votesubject;
+	delete from votesubject where vsid=11;
 --添加主题中的选项
 		insert into voteoption(voteoption,vsid,voteorder)values('腾讯QQ',3,1);
 		insert into voteoption(voteoption,vsid,voteorder)values('MSN',3,2);

@@ -20,7 +20,7 @@
 								str +='calss="odd"';
 							}
 							str+='><h4>'
-							+'<a href="">' +item.title+'</a>'
+							+'<a href="vote.html?vsid='+item.vsid+'">' +item.title+'</a>'
 							+'<h4><div class="join">'
 							+'<a href="vote.html?vsid='+item.vsid+'">我要参与</a></div>'
 							+'<p class="info">共有 '+item.optioncount+'个选项，已有 '+item.usercount+'网友参与了投票。</p> '
@@ -46,6 +46,35 @@
 					}
 				}
 			});
+			
+			$("#sub").click(function(){
+				$.ajax({
+					type:"post",
+					data:$("#searchform").serialize(),
+					url:"search_subject",
+					dataType:"json",
+					success:function(data){
+						if(data.code== 1){
+							$("#list").html("");
+							$(data.obj).each(function(index,item){
+								var str = "<li ";
+								if(index%2 ==0){
+									str +='calss="odd"';
+								}
+								str+='><h4>'
+								+'<a href="">' +item.title+'</a>'
+								+'<h4><div class="join">'
+								+'<a href="vote.html?vsid='+item.vsid+'">我要参与</a></div>'
+								+'<p class="info">共有 '+item.optioncount+'个选项，已有 '+item.usercount+'网友参与了投票。</p> '
+								+'</li>';
+								$("#list").html($("#list").html()+str);
+							});
+						}else{
+							alert("查询失败！原因"+data.msg);
+						}
+					}
+				});
+			});	
 	});
 </script>
   </head>
@@ -62,8 +91,8 @@
   		
   	</div>
   	<div class="search">
-  		<form method="post" action="Subject!search.action">
-  			<input type="text" name="keywords" class="input-text" value=""/><input type="submit" name="submit" class="input-button" value="" />
+  		<form method="post" id="searchform" action="search.action">
+  			<input type="text" name="keyword" id="keyword" class="input-text" value=""/><input type="button" id="sub" name="sub" class="input-button" value="" />
   		</form>
   	</div>
   </div>
@@ -93,6 +122,8 @@
 			}
 		});
   }
+  
+  
   </script>
   </body>
   </html>

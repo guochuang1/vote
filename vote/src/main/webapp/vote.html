@@ -51,9 +51,7 @@
 		data:params,
 		success:function(data){
 			if(data.code ==1){
-				
 				data=data.obj;   //votesubject 里面包括vsid，title,usercount,optioncount(选项数),options
-				
 				$("#title").html(data.title);
 				$("#optioncount").html(data.optioncount);
 				$("#usercount").html(data.usercount);

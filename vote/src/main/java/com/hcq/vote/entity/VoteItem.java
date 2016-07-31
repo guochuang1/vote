@@ -1,6 +1,9 @@
 package com.hcq.vote.entity;
 
-public class VoteItem {
+import java.io.Serializable;
+
+public class VoteItem implements Serializable{
+	private static final long serialVersionUID = -6477994104560392173L;
 	private Integer viid ;   //编号
 	private Integer vsid;   //主题
 	private Integer voteid;    //选项

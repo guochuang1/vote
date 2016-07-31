@@ -1,6 +1,9 @@
 package com.hcq.vote.entity;
 
-public class VoteOption {
+import java.io.Serializable;
+
+public class VoteOption implements Serializable{
+	private static final long serialVersionUID = 8219620160311146100L;
 	private long voteid ;     //±àºÅ
 	private String voteoption;   //Ñ¡ÏîÃû
 	private Integer voteorder;    
